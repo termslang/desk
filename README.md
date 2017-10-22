@@ -23,13 +23,7 @@ $ yarn start
 
 | Revision | Link |
 | ------ | ------ |
-| 20171019 | [/terms.20171019.txt] [PlDb] |
-| 20171019 | [plugins/dropbox/README.md] [PlDb] |
-| Github | [plugins/github/README.md] [PlGh] |
-| Google Drive | [plugins/googledrive/README.md] [PlGd] |
-| OneDrive | [plugins/onedrive/README.md] [PlOd] |
-| Medium | [plugins/medium/README.md] [PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md] [PlGa] |
+| 20171019 | [terms.20171019.txt](/terms.20171019.txt) |
 
 
 > What does a revision file contain?
