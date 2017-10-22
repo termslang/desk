@@ -23,7 +23,9 @@ $ yarn start
 
 | Revision | Link |
 | ------ | ------ |
-| 20171019 | [terms.20171019.txt] [PlDb] |
+| 20171019 | [/terms.20171019.txt] [PlDb] |
+
+
 
 > What does a revision file contain?
 > 1) ">>" strings to determine EVM constants like CALLER, GAS etc.
@@ -39,6 +41,6 @@ $ yarn start
 > - arrays
 > Arrays are represented as variable names with '#' character inside. Array subscript goes right after the '#' character.
 > All arrays have dynamical size
-
+> 
 > Some macros are made to work with strings. Those accept zero element of string array.
 > For string (and array) #0 element, there is alias "SEQUENCE", i.e.  NAME #0  equals to NAME SEQUENCE.
