@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #5a2703;
+    color: white
+}
+body {
+    display: flex;
+    flex-flow: column;
+}
+h1 {
+    font-family:"Tahoma", Times, serif;
+    color: black;
+    text-align: center;
+}
+label {
+    font-family:"Tahoma", Times, serif;
+    color: black;
+}
+.row {
+    flex: 1;
+    display: flex;
+    flex-flow: row;
+}
+.col {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    margin: 0px 3px;
+}
+label {
+    display: block;
+    padding-left: 2px;
+}
+textarea {
+    flex: 1;
+    display: block;
+    margin: 2px 0;
+    padding: 1px;
+    border: 1px solid;
+    resize: none;
+
+    background-color: #dfdcc2;
+    font-family:"American Typewriter", Times, serif;
+    font-size: 18px;
+    color: #522c2b
+}
+button[type=submit] {
+  background-color: #efdcb2;
+  font-family:"Tahoma", Times, serif;
+  font-size: 18px;
+  color: white
+
+  border: none; /*rewriting standard style, it is necessary to be able to change the size*/
+  margin: 2px 0;
+  padding: 1px;
+  border: 1px solid;
+  resize: none;
+  height: 100px;
+}
+</style>
+
+
+<html>
+<head>
+<meta charset="utf-8" />
+<title>TERMS DEVELOPER DESK</title>
+</head>
+<body>
+    <h1>TERMS DEVELOPER DESK</h1>
+    <div class="row">
+        <div class="col">
+            <label for="input">INPUT</label>
+            <textarea id="input" name="input">
+
+Terms revision macro
+Contract "100 liner casino"
+
+
+event Roll(uint256 indexed bet, uint256 indexed players);
+event Won(address indexed winner, uint256 indexed jackpot);
+
+Conditions:
+
+
+Payable fallback:
+If REVENUE CONSTANT is zero, invoke 100.
+return.
+
+
+
+withdraw()
+Let BALANCE read record CALLER CONSTANT plus 32.  //ADDRESS BALANCE
+if BALANCE is zero, invoke 100.
+Write 0 to record CALLER CONSTANT plus 32.
+Send BALANCE to CALLER CONSTANT or invoke 100 if zero.
+return.
+
+constant balance()
+Let BALANCE read record CALLER CONSTANT plus 32.  //ADDRESS BALANCE
+return uint256 at BALANCE.
+
+suicide()
+suicide.
+return.
+
+100.
+return.
+
+
+            </textarea>
+        </div>
+        <div class="col">
+          <div class="col">
+            <label for="output">OUTPUT</label>
+            <textarea id="output" name="output" style="font-family:Courier;background-color:#333333;white-space:pre-wrap">
+
+
+
+            </textarea>
+          </div>
+          <div class="col">
+            <button type="submit" onclick="compile()">COMPILE</button>
+            <script>
+            function compile() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+                 document.getElementById("output").style.color = "#c7c7c7";
+                 document.getElementById("output").value = this.responseText;
+               } else {
+                 document.getElementById("output").style.color = "red";
+                 document.getElementById("output").value = this.responseText;
+               }
+              };
+              xhttp.open("POST", "ajax-request", true);
+              xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+              var parameters = 'input='+document.getElementById('input').value;
+              xhttp.send(parameters);
+            }
+            </script>
+
+          </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+</html>

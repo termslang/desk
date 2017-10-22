@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  },
+  "name": "desk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node desk.js",
+    "beg": "start http://localhost:3000/ & node desk.js"
+  }
+}
