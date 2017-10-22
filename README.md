@@ -24,7 +24,12 @@ $ yarn start
 | Revision | Link |
 | ------ | ------ |
 | 20171019 | [/terms.20171019.txt] [PlDb] |
-
+| 20171019 | [plugins/dropbox/README.md] [PlDb] |
+| Github | [plugins/github/README.md] [PlGh] |
+| Google Drive | [plugins/googledrive/README.md] [PlGd] |
+| OneDrive | [plugins/onedrive/README.md] [PlOd] |
+| Medium | [plugins/medium/README.md] [PlMe] |
+| Google Analytics | [plugins/googleanalytics/README.md] [PlGa] |
 
 
 > What does a revision file contain?
@@ -41,6 +46,6 @@ $ yarn start
 > - arrays
 > Arrays are represented as variable names with '#' character inside. Array subscript goes right after the '#' character.
 > All arrays have dynamical size
-> 
+>
 > Some macros are made to work with strings. Those accept zero element of string array.
 > For string (and array) #0 element, there is alias "SEQUENCE", i.e.  NAME #0  equals to NAME SEQUENCE.
