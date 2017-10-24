@@ -3,8 +3,8 @@
 ; Mikhail Baynov m.baynov@gmail.com
 ;
 ; Official macro set
-; Revision  YYYYMMDD
-; Signature 5c1fdbaca52bafedac79d6568cb0e3050312adef1be2ff65adaf3863dd29da62
+; Revision  20171022
+; Signature 1bee86c873130d877bbfc4efbe191ece847020ec1439304e3cba634882a47409
 
 
 
@@ -27,7 +27,6 @@
 >> PC PC
 >> MSIZE MSIZE
 >> GAS GAS
->> GASLIMIT GASLIMIT
 
 
 
@@ -100,7 +99,6 @@ STOP
 STOP
 
 ## suicide
-CALLER
 SUICIDE
 
 ## if zero , invoke ^1
@@ -561,7 +559,7 @@ PUSH ^2
 ADD
 SSTORE
 
-## let ^1 get stack value
+## Let ^1 get stack value
 PUSH ^1
 MSTORE
 
