@@ -43,3 +43,9 @@ $ yarn start
 >
 > Some macros are made to work with strings. Those accept zero element of string array.
 > For string (and array) #0 element, there is alias "SEQUENCE", i.e.  NAME #0  equals to NAME SEQUENCE.
+>
+>
+>  Alternative way to use Terms compiler:
+```sh
+$ ./terms filename.t
+```
