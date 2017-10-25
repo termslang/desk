@@ -29,7 +29,7 @@ return.
 roll()
 Grab record JACKPOT.
 if JACKPOT is zero, see 2.1.5.
-See reference 199.
+Apply procedure 199.
 Let BALANCE read record WINNER plus 32.
 Increment BALANCE by JACKPOT.
 Write BALANCE to record WINNER plus 32.
@@ -75,20 +75,20 @@ return.
 
 
 withdraw()
-Let BALANCE read record CALLER CONSTANT plus 32.  //ADDRESS BALANCE
+Let BALANCE read record CALLER CONSTANT plus 32.
 if BALANCE is zero, see 100.
 Write 0 to record CALLER CONSTANT plus 32.
-Send BALANCE to CALLER CONSTANT or see 100 if zero.
+Send BALANCE to CALLER CONSTANT.
 return.
 
 
 constant winner()
-See reference 199.
+Apply procedure 199.
 return address at WINNER.
 
 
 constant balance()
-Let BALANCE read record CALLER CONSTANT plus 32.  //ADDRESS BALANCE
+Let BALANCE read record CALLER CONSTANT plus 32.
 return uint256 at BALANCE.
 
 
@@ -129,7 +129,7 @@ suicide.
 return.
 
 
-Reference 199.
+Procedure 199.
 Grab record ROLL BLOCK NUMBER.
 if ROLL BLOCK NUMBER is zero, see 100.
 Let stack get hash of block ROLL BLOCK NUMBER.
@@ -139,7 +139,7 @@ if PLAYER COUNT < 2, see 100.
 Let INDEX = HASH mod PLAYER COUNT.
 Increment INDEX.
 Let WINNER read record PLAYER #INDEX.
-return back.
+Procedure end.
 
 
 100.

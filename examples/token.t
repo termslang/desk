@@ -30,17 +30,17 @@ return.
 
 transfer(address to, uint256 value);
 Let FROM = CALLER CONSTANT.
-See reference 99.
+Apply procedure 99.
 return.
 
 transferFrom(address from, address to, uint256 value);
-See reference 88.
+Apply procedure 88.
 if VALUE > REMAINING, see 100.
 Decrement REMAINING by VALUE.
 Let TMP = FROM - TO.
 Push TMP to stack.
 Write REMAINING to record stack.
-See reference 99.
+Apply procedure 99.
 return.
 
 approve(address spender, uint256 value);
@@ -55,7 +55,7 @@ Let BALANCE read record OWNER plus 32.
 return uint256 at BALANCE.
 
 constant allowance(address from, address to);
-See reference 88.
+Apply procedure 88.
 return uint256 at REMAINING.
 
 
@@ -76,14 +76,14 @@ Grab record SUPPLY.
 return uint256 at SUPPLY.
 
 
-Reference 88. //get allowance
+Procedure 88. //get allowance
 Let TMP = FROM - TO.
 Push TMP to stack.
 Let stack read record.
 Let REMAINING get stack value.
-continue.
+Procedure end.
 
-Reference 99. //transfer
+Procedure 99. //transfer
 Let FROM BALANCE read record FROM plus 32.
 if VALUE > FROM BALANCE, see 100.
 Let TO BALANCE read record TO plus 32.
@@ -92,6 +92,6 @@ Increment TO BALANCE by VALUE.
 Write FROM BALANCE to record FROM plus 32.
 Write TO BALANCE to record TO plus 32.
 Log TRANSFER EVENT with topics FROM, TO, VALUE.
-continue.
+Procedure end.
 
 100. return.
