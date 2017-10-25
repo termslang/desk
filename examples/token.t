@@ -35,7 +35,7 @@ return.
 
 transferFrom(address from, address to, uint256 value);
 See reference 88.
-if VALUE > REMAINING, invoke 100.
+if VALUE > REMAINING, see 100.
 Decrement REMAINING by VALUE.
 Let TMP = FROM - TO.
 Push TMP to stack.
@@ -85,7 +85,7 @@ continue.
 
 Reference 99. //transfer
 Let FROM BALANCE read record FROM plus 32.
-if VALUE > FROM BALANCE, invoke 100.
+if VALUE > FROM BALANCE, see 100.
 Let TO BALANCE read record TO plus 32.
 Decrement FROM BALANCE by VALUE.
 Increment TO BALANCE by VALUE.

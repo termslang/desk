@@ -3,8 +3,8 @@
 ; Mikhail Baynov m.baynov@gmail.com
 ;
 ; Official macro set
-; Revision  YYYYMMDD
-; Signature 5c1fdbaca52bafedac79d6568cb0e3050312adef1be2ff65adaf3863dd29da62
+; Revision  20171023
+; Signature 39b323a8a4fbc711abd0ebb073eaceeb59744b80920bf26767139366633ba796
 
 
 
@@ -84,7 +84,7 @@ JUMPDEST ^1
 ## reference ^1
 JUMPDEST ^1
 
-## invoke ^1
+## see ^1
 JUMP ^1
 
 ## see reference ^1
@@ -103,7 +103,7 @@ STOP
 CALLER
 SUICIDE
 
-## if zero , invoke ^1
+## if zero , see ^1
 ISZERO
 JUMPI ^1
 
@@ -114,48 +114,48 @@ SLOAD
 SWAP1
 MSTORE
 
-## if ^1 is zero , invoke ^2
+## if ^1 is zero , see ^2
 PUSH* ^1
 ISZERO
 JUMPI ^2
 
-## if ^1 is not zero , invoke ^2
+## if ^1 is not zero , see ^2
 PUSH* ^1
 JUMPI ^2
 
-## if ^1 <= ^2 , invoke ^3
+## if ^1 <= ^2 , see ^3
 PUSH* ^2
 PUSH* ^1
 GT
 ISZERO
 JUMPI ^3
 
-## if ^1 >= ^2 , invoke ^3
+## if ^1 >= ^2 , see ^3
 PUSH* ^2
 PUSH* ^1
 LT
 ISZERO
 JUMPI ^3
 
-## if ^1 < ^2 , invoke ^3
+## if ^1 < ^2 , see ^3
 PUSH* ^2
 PUSH* ^1
 LT
 JUMPI ^3
 
-## if ^1 > ^2 , invoke ^3
+## if ^1 > ^2 , see ^3
 PUSH* ^2
 PUSH* ^1
 GT
 JUMPI ^3
 
-## if ^1 == ^2 , invoke ^3
+## if ^1 == ^2 , see ^3
 PUSH* ^2
 PUSH* ^1
 EQ
 JUMPI ^3
 
-## if ^1 != ^2 , invoke ^3
+## if ^1 != ^2 , see ^3
 PUSH* ^2
 PUSH* ^1
 SUB
@@ -241,7 +241,7 @@ EXP
 PUSH ^1
 MSTORE
 
-## if it equals to ^1 , invoke ^2
+## if it equals to ^1 , see ^2
 PUSH* ^1
 EQ
 JUMPI ^2
@@ -277,33 +277,6 @@ PUSH ^2
 SLOAD
 PUSH ^1
 MSTORE
-
-## send ^1 to ^2
-PUSH 0x00
-PUSH 0x00
-PUSH 0x00
-PUSH 0x00
-PUSH* ^1
-PUSH* ^2
-PUSH 0x64
-GAS
-SUB
-CALL
-
-## send ^1 to ^2 or invoke ^3 if zero
-PUSH* ^1
-ISZERO
-JUMPI ^3
-PUSH 0x00
-PUSH 0x00
-PUSH 0x00
-PUSH 0x00
-PUSH* ^1
-PUSH* ^2
-PUSH 0x64
-GAS
-SUB
-CALL
 
 ## read record ^1 into ^2 , ^3
 PUSH ^1
@@ -595,5 +568,57 @@ PUSH* ^1
 SWAP1
 SSTORE
 
+## send ^1 to ^2
+PUSH 0x00
+PUSH 0x00
+PUSH 0x00
+PUSH 0x00
+PUSH* ^1
+PUSH* ^2
+PUSH 0x64
+GAS
+SUB
+CALL
+
+## set contract input ^1 hash ^2 , size ^3
+PUSH ^3
+PUSH ^1
+MSTORE
+PUSH ^2
+PUSH 0x20
+PUSH ^1
+SUB
+MSTORE
+
+## call contract address ^1 , input ^2
+PUSH 0x20
+PUSH 0x00
+PUSH 0x04
+PUSH 0x04
+PUSH ^2
+SUB
+PUSH 0x00
+PUSH ^1
+PUSH 0x64
+GAS
+SUB
+CALL
+
+## extract ^1 from method ^2 of contract ^3
+PUSH ^2
+PUSH ^1
+MSTORE
+PUSH 0x20
+PUSH ^1
+PUSH 0x04
+PUSH 0x1c
+PUSH ^1
+ADD
+PUSH 0x00
+PUSH ^3
+PUSH 0x64
+GAS
+SUB
+CALL
 
 ## ;end marker

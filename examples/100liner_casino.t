@@ -9,17 +9,17 @@ Conditions:
 
 
 Payable fallback:
-If REVENUE CONSTANT is zero, invoke 100.
+If REVENUE CONSTANT is zero, see 100.
 Let BALANCE read record CALLER CONSTANT plus 32.
 Increment BALANCE by REVENUE CONSTANT.
 Write BALANCE to record CALLER CONSTANT plus 32.
 Let INDEX = 1.
 
 1.1  Let stack read record USER #INDEX.
-if STACKCOPY CONSTANT is zero, invoke 1.2.
-if STACKCOPY CONSTANT == CALLER CONSTANT, invoke 1.2.
+if STACKCOPY CONSTANT is zero, see 1.2.
+if STACKCOPY CONSTANT == CALLER CONSTANT, see 1.2.
 Increment INDEX.
-Invoke 1.1.
+see 1.1.
 //found
 1.2  Write CALLER CONSTANT to record USER #INDEX.
 Write INDEX to record CALLER CONSTANT.
@@ -28,7 +28,7 @@ return.
 
 roll()
 Grab record JACKPOT.
-if JACKPOT is zero, invoke 2.1.5.
+if JACKPOT is zero, see 2.1.5.
 See reference 199.
 Let BALANCE read record WINNER plus 32.
 Increment BALANCE by JACKPOT.
@@ -41,11 +41,11 @@ stop.
 Let INDEX = 1.
 //loop users, make list of players, set bet
 2.1.8  Let stack read record USER #INDEX.
-if zero, invoke 3.1.
+if zero, see 3.1.
 Let BALANCE read record USER plus 32.
-if BALANCE is zero, invoke 2.2.3.
-if BET is zero, invoke 2.2.1.
-if BET <= BALANCE, invoke 2.2.2.
+if BALANCE is zero, see 2.2.3.
+if BET is zero, see 2.2.1.
+if BET <= BALANCE, see 2.2.2.
 
 2.2.1  Let BET = BALANCE.
 
@@ -55,20 +55,20 @@ Let PLAYER #PLAYER COUNT get USER.
 Write record PLAYER #PLAYER COUNT.
 
 2.2.3  Increment INDEX.
-invoke 2.1.8.
+see 2.1.8.
 
-3.1  if PLAYER COUNT < 2, invoke 3.3.
+3.1  if PLAYER COUNT < 2, see 3.3.
 Let JACKPOT = BET * PLAYER COUNT.
 Write record JACKPOT.
 let INDEX = 1.
 //loop players
-3.2  if INDEX > PLAYER COUNT, invoke 3.3.
+3.2  if INDEX > PLAYER COUNT, see 3.3.
 Let PLAYER = PLAYER #INDEX.
 Let BALANCE read record PLAYER plus 32.
 Decrement BALANCE by BET.
 Write BALANCE to record PLAYER plus 32.
 Increment INDEX.
-invoke 3.2.
+see 3.2.
 
 3.3  Log ROLL EVENT with topics BET, PLAYER COUNT.
 return.
@@ -76,9 +76,9 @@ return.
 
 withdraw()
 Let BALANCE read record CALLER CONSTANT plus 32.  //ADDRESS BALANCE
-if BALANCE is zero, invoke 100.
+if BALANCE is zero, see 100.
 Write 0 to record CALLER CONSTANT plus 32.
-Send BALANCE to CALLER CONSTANT or invoke 100 if zero.
+Send BALANCE to CALLER CONSTANT or see 100 if zero.
 return.
 
 
@@ -131,11 +131,11 @@ return.
 
 Reference 199.
 Grab record ROLL BLOCK NUMBER.
-if ROLL BLOCK NUMBER is zero, invoke 100.
+if ROLL BLOCK NUMBER is zero, see 100.
 Let stack get hash of block ROLL BLOCK NUMBER.
 Let HASH get stack value.
 Grab record PLAYER COUNT.
-if PLAYER COUNT < 2, invoke 100.
+if PLAYER COUNT < 2, see 100.
 Let INDEX = HASH mod PLAYER COUNT.
 Increment INDEX.
 Let WINNER read record PLAYER #INDEX.
